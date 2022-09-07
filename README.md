@@ -3,17 +3,16 @@
 A website containing tools useful to pokers players.  
 Tech Stack:
 - React.js
-- Nest.js
-- PostgreSQL
+- Express.js
 
 ## Getting Started
 1. Clone repository
 ```
-$ git clone https://github.com/trob0697/PokerTools.git
+$ git clone https://github.com/trob0697/pokertools-v2.git
 ```
 2. Open local instance
 ```
-$ cd PokerTools
+$ cd pokertools-v2
 ```
 3. Install dependencies
 ```
@@ -34,4 +33,4 @@ npm run back-end
 
 ## License
 
-Copyright (c) 2021 Tahreak Robinson
+Copyright (c) 2022 Tahreak Robinson
