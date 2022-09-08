@@ -22,7 +22,7 @@ body{
 }
 
 .home-boxes-container{
-    height: calc(100vh - 60px);;
+    min-height: calc(100vh - 60px);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -63,6 +63,10 @@ body{
     margin-left: 3em;
 }
 
+.features-list > li{
+    color: white;
+}
+
 .login-register{
     display: flex;
     justify-content: space-around;
@@ -98,6 +102,6 @@ body{
     width: 80%;
 }
 
-.form-item{
+.form-group > *{
     margin-top: 1em;
 }

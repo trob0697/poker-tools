@@ -9,7 +9,7 @@ import Home from "./routes/Home";
 function App() {
   return (
     <div >
-      <NavigationBar />
+      <NavigationBar/>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home/>}/>
