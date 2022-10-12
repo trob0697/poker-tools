@@ -16,7 +16,6 @@ let refreshTokens: any[] = [];
 router.post("/register", async (req: Request, res: Response) => {
     try{
         const { email, password }: UserRegiLogin = req.body;
-        // check for valid email
         const hashedPassword = await bcrypt.hash(password, 10);
         await userService.createUser(email, hashedPassword);
         res.status(201).send();
