@@ -3,8 +3,9 @@ import { Knex } from "knex";
 export async function up(knex: Knex): Promise<void> {
     return knex.schema
         .createTable("refresh_tokens", table => {
-            table.uuid("token").notNullable()
-            table.datetime("expiry").notNullable()
+            table.uuid("id").notNullable().unique().primary().defaultTo(knex.raw("uuid_generate_v4()"));
+            table.uuid("token").notNullable();
+            table.datetime("expiry").notNullable();
         });
 }
 
