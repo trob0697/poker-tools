@@ -4,6 +4,8 @@ A website containing tools useful to pokers players.
 Tech Stack:
 - React.js
 - Express.js
+- PostgreSQL
+- Knex.js
 
 ## Getting Started
 1. Clone repository
@@ -22,13 +24,24 @@ $ npm run install-all
 ## Front-End
 Serve the front-end on http://localhost:3000
 ```
-npm run front-end-start
+npm run front-end
 ```
 
 ## Back-End
 Serve the back-end on http://localhost:4000
 ```
 npm run back-end
+```
+
+## Database
+Create migration
+```
+npm run migrate-init
+```
+Migrations
+```
+npm run migrate-up
+npm run migrate-down
 ```
 
 ## License

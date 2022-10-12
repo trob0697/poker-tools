@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { EventText, HomeCredentials } from "../models";
+import { EventText, HomeCredentials } from "../../utils/models";
 
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";

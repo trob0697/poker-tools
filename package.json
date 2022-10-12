@@ -1,26 +1,24 @@
 {
-  "name": "pokertools",
-  "version": "1.0.0",
+  "name": "pokertools-v2",
+  "version": "2.0.0",
   "description": "A web app providing tools useful to pokers players",
   "main": "",
   "scripts": {
     "install-all": "cd front-end && npm install && cd ../back-end && npm install",
-    "front-end-start": "cd front-end && npm run start",
-    "front-end-build": "cd front-end && npm run build",
-    "front-end-test": "cd front-end && npm run test",
-    "front-end-eject": "cd front-end && npm run eject",
-    "back-end-start": "cd back-end && npm start",
-    "back-end-start:dev": "cd back-end && npm run start:dev",
-    "back-end-start:prod": "cd back-end && npm run start:prod"
+    "front-end": "cd front-end && npm run start",
+    "back-end": "cd back-end && npm run start",
+    "migrate-init": "cd back-end && npx knex migrate:make init --migrations-directory src/database/migrations -x ts",
+    "migrate-up": "cd back-end && npx knex migrate:up --knexfile src/database/knexfile.ts",
+    "migrate-down": "cd back-end && npx knex migrate:down --knexfile src/database/knexfile.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trob0697/PokerTools.git"
+    "url": "git+https://github.com/trob0697/pokertools-v2.git"
   },
   "author": "Tahreak Robinson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/trob0697/PokerTools/issues"
+    "url": "https://github.com/trob0697/pokertools-v2/issues"
   },
-  "homepage": "https://github.com/trob0697/PokerTools#readme"
+  "homepage": "https://github.com/trob0697/pokertools-v2#readme"
 }

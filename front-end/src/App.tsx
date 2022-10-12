@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./app.css";
 
 import NavigationBar from "./components/NavigationBar";
-import Home from "./routes/Home";
+import Home from "./pages/Home/index";
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <NavigationBar/>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/home' element={<Home/>}/>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/home" element={<Home/>}/>
           </Routes>
         </BrowserRouter>
     </div>
