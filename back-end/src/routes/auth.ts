@@ -21,7 +21,7 @@ router.post("/register", async (req: Request, res: Response) => {
     catch(err: any){
         if(err.code == 23505)
             res.status(409).send("Account already exists");
-        res.status(500).send(err);
+        res.status(500).send();
     }
 })
 
@@ -42,7 +42,7 @@ router.post("/login", async (req: Request, res: Response) => {
         });
     }
     catch(err){
-        return res.status(500).send(err);
+        return res.status(500).send();
     }
 })
 
@@ -59,8 +59,7 @@ router.post("/token", async (req: Request, res: Response) => {
         res.status(200).json({"accessToken": accessToken});
     }
     catch(err){
-        console.log(err);
-        res.status(500).send(err);
+        res.status(500).send();
     }
 })
 
