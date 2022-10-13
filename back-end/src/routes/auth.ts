@@ -11,12 +11,10 @@ const refreshTokenService = require("../services/refreshTokens");
 const accessTokenSecret: string = process.env.ACCESS_TOKEN_SECRET || "secret";
 const refreshTokenSecret: string = process.env.REFRESH_TOKEN_SECRET || "secret";
 
-let refreshTokens: any[] = [];
-
 router.post("/register", async (req: Request, res: Response) => {
     try{
         const { email, password }: UserRegiLogin = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword: string = await bcrypt.hash(password, 10);
         await userService.createUser(email, hashedPassword);
         res.status(201).send();
     }
@@ -50,26 +48,26 @@ router.post("/login", async (req: Request, res: Response) => {
 
 router.post("/token", async (req: Request, res: Response) => {
     try{
-        const refreshToken = req.body.refreshToken;
+        const refreshToken: string = req.body.refreshToken;
         if(refreshToken == null) 
             return res.status(401).send();
         if(!(await refreshTokenService.hasToken(refreshToken)))
             return res.status(403).send();
-        const user = jwt.verify(refreshToken, refreshTokenSecret);
-        // remove iat from user object
-        const accessToken = jwt.sign(user, accessTokenSecret, { expiresIn: 1200 });
+        const user: User = jwt.verify(refreshToken, refreshTokenSecret) as User;
+        delete user.iat;
+        const accessToken: string = jwt.sign(user, accessTokenSecret, { expiresIn: 1200 }); // expresIn not working
         res.status(200).json({"accessToken": accessToken});
     }
     catch(err){
+        console.log(err);
         res.status(500).send(err);
     }
 })
 
 router.delete("/logout", async (req: Request, res: Response) => {
     try{
-        const refreshToken = req.body.refreshToken;
+        const refreshToken: string = req.body.refreshToken;
         await refreshTokenService.removeToken(refreshToken);
-        refreshTokens = refreshTokens.filter( token => token !== refreshToken);
         res.status(204).send();
     }
     catch(err){
@@ -77,7 +75,7 @@ router.delete("/logout", async (req: Request, res: Response) => {
     }
 })
 
-router.delete("/remove-expired-tokens", async (req: Request, res: Response) => {
+router.delete("/tokens", async (req: Request, res: Response) => {
     try{
         await refreshTokenService.removeExpiredTokens();
         res.status(204).send();

@@ -13,6 +13,7 @@ export type User = {
     verified: boolean;
     active: boolean;
     created: Date;
+    iat?: Date;
 }
 
 export interface RequestWithUser extends Request {
