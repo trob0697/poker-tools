@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon src/index.ts",
-    "build": "tsc -p ."
+    "start": "node src/index.ts",
+    "start-dev": "nodemon src/index.ts",
+    "build": "tsc -p .",
+    "migrate-init": "npx knex migrate:make init --migrations-directory src/database/migrations -x ts",
+    "migrate-up": "npx knex migrate:up --knexfile src/database/knexfile.ts",
+    "migrate-down": "npx knex migrate:down --knexfile src/database/knexfile.ts"
   },
   "author": "",
   "license": "ISC",

@@ -3,14 +3,6 @@
   "version": "2.0.0",
   "description": "A web app providing tools useful to pokers players",
   "main": "",
-  "scripts": {
-    "install-all": "cd front-end && npm install && cd ../back-end && npm install",
-    "front-end": "cd front-end && npm run start",
-    "back-end": "cd back-end && npm run start",
-    "migrate-init": "cd back-end && npx knex migrate:make init --migrations-directory src/database/migrations -x ts",
-    "migrate-up": "cd back-end && npx knex migrate:up --knexfile src/database/knexfile.ts",
-    "migrate-down": "cd back-end && npx knex migrate:down --knexfile src/database/knexfile.ts"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trob0697/pokertools-v2.git"

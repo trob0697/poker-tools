@@ -1,7 +1,7 @@
 import { Request } from "express";
 import { JwtPayload } from "jsonwebtoken";
 
-export type UserRegiLogin = {
+export type UserCredentials = {
     email: string;
     password: string;
 }

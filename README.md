@@ -6,6 +6,7 @@ Tech Stack:
 - Express.js
 - PostgreSQL
 - Knex.js
+- Docker
 
 ## Getting Started
 1. Clone repository
@@ -16,32 +17,9 @@ $ git clone https://github.com/trob0697/pokertools-v2.git
 ```
 $ cd pokertools-v2
 ```
-3. Install dependencies
+3. Bring up
 ```
-$ npm run install-all
-```
-
-## Front-End
-Serve the front-end on http://localhost:3000
-```
-npm run front-end
-```
-
-## Back-End
-Serve the back-end on http://localhost:4000
-```
-npm run back-end
-```
-
-## Database
-Create migration
-```
-npm run migrate-init
-```
-Migrations
-```
-npm run migrate-up
-npm run migrate-down
+$ docker compose up app
 ```
 
 ## License

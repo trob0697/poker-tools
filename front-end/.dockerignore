@@ -1,0 +1,7 @@
+# Docker
+Dockerfile.dev
+Dockerfile.prod
+.dockerignore
+
+# Packages
+node_modules
