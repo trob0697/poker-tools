@@ -34,6 +34,8 @@ function Settings() : ReactElement {
 
     function onClickLogout() : void {
         // TODO: API to logout
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
         navigate("/home");
     };
 
