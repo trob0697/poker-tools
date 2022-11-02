@@ -22,7 +22,7 @@ function App(): React.ReactElement {
                 </Routes>
             </BrowserRouter>
         </div>
-    )
+    );
 }
 
 export default App;
