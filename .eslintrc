@@ -7,8 +7,6 @@
         "plugin:react/recommended",
         "standard-with-typescript"
     ],
-    "overrides": [
-    ],
     "parserOptions": {
         "ecmaVersion": "latest",
         "project": ["./front-end/tsconfig.json", "./back-end/tsconfig.json"],
@@ -26,5 +24,13 @@
         "@typescript-eslint/semi": "off",
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/quotes": "off"
-    }
+    },
+    "overrides": [
+        {
+            "files": ["./back-end/src/database/migrations/*"],
+            "rules": {
+                "@typescript-eslint/return-await": "off"
+            }
+        }
+    ]
 }
