@@ -24,6 +24,8 @@ function Home() : ReactElement {
 
     function login() : void {
         // TODO: API to login
+        localStorage.setItem("accessToken", "token");
+        localStorage.setItem("refreshToken", "token");
         clearAllFields();
     };
 
@@ -31,6 +33,24 @@ function Home() : ReactElement {
         // TODO: API to create account
         clearAllFields();
     };
+
+    function onLogout() : void {
+        // TODO: API to logout
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        clearAllFields()
+    }
+
+    function checkTokens() : Boolean {
+        const accessToken : string|null = localStorage.getItem("accessToken");
+        const refreshToken : string|null = localStorage.getItem("refreshToken");
+        if(accessToken !== null && refreshToken !== null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     return(
         <div className="background">
@@ -47,6 +67,14 @@ function Home() : ReactElement {
                         </ul>
                     </div>
                 </div>
+                {checkTokens()? 
+                <div className="home-box">
+                    <div>
+                        <div className="logged-in-text">Welcome</div>
+                        <Button className="form-item" variant="danger" onClick={() => onLogout()}>Logout</Button>
+                    </div>
+                </div>
+                :
                 <div className="home-box">
                     <div>
                         <div className="login-register">
@@ -73,6 +101,7 @@ function Home() : ReactElement {
                         }
                     </div>
                 </div>
+                }
             </div>
         </div>
     )

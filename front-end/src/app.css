@@ -72,6 +72,11 @@ body{
     color: white;
 }
 
+.logged-in-text{
+    color: white;
+    font-size: 4em;
+}
+
 .login-register{
     display: flex;
     justify-content: space-around;
