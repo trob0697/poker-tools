@@ -8,7 +8,7 @@ import { authRouter } from "./routes/auth";
 import  { authenticateToken } from "./middlewares/auth";
 
 const app: Application = express();
-const port: String = process.env.port || "4000";
+const port: string = process.env.port || "4000";
 
 app.use(express.json());
 app.use("/api/equity-calculator", authenticateToken, equityCalculatorRouter);

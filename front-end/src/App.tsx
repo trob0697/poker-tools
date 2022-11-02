@@ -1,10 +1,12 @@
 
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./app.css";
+import "./App.css";
 
-import NavigationBar from "./components/NavigationBar";
+import NavigationBar from "./components/navigationBar";
+
 import Home from "./pages/Home/index";
+import EquityCalculator from "./pages/EquityCalculator/index";
+import Settings from "./pages/Settings/index";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/home" element={<Home/>}/>
+            <Route path="/equity-calculator" element={<EquityCalculator/>}/>
+            <Route path="/settings" element={<Settings/>}/>
           </Routes>
         </BrowserRouter>
     </div>

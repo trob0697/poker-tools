@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { ReactElement, useState } from "react";
 import { EventText, HomeCredentials } from "../../utils/models";
 
 import Form from "react-bootstrap/Form";
@@ -6,15 +6,15 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
 
-function Home(){
-    const [isLogin, setIsLogin] = useState(true);
+function Home() : ReactElement {
+    const [isLogin, setIsLogin] = useState<Boolean>(true);
     const [credentials, setCredentials] = useState<HomeCredentials>({
         email: "",
         password: "",
         confirmPassword: ""
     });
 
-    const clearAllFields = () => {
+    function clearAllFields() : void {
         setCredentials({
             email: "",
             password: "",
@@ -22,13 +22,13 @@ function Home(){
         });
     };
 
-    const login = () => {
-        console.log("API to login and get cookies");
+    function login() : void {
+        // TODO: API to login
         clearAllFields();
     };
 
-    const register = () => {
-        console.log("API to create account");
+    function register() : void {
+        // TODO: API to create account
         clearAllFields();
     };
 
