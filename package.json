@@ -16,7 +16,8 @@
   "scripts": {
     "install-all": "npm i && cd front-end && npm i && cd ../back-end && npm i && cd ..",
     "front-end": "cd front-end && npm start",
-    "back-end": "cd back-end && npm run start-dev"
+    "back-end": "cd back-end && npm run start-dev",
+    "lint": "npx eslint . --ext .ts --ext .tsx"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.42.0",
