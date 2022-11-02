@@ -49,7 +49,7 @@ function AccountDetails(): React.ReactElement {
                         <Form className="form-group">
                             <FormControl className="form-item settings-ad-form-item" type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
                             <FormControl className="form-item settings-ad-form-item" type="password" placeholder="Confirm New Password" value={confirmNewPassword} onChange={(e) => setConfirmNewPassword(e.target.value)}/>
-                            <FormControl className="form-item settings-ad-form-item" type="password" placeholder="Old Password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)}/>
+                            <FormControl className="form-item settings-ad-form-item" type="password" placeholder="Password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)}/>
                             <Button className="form-item settings-ad-form-item" variant="danger" onClick={() => onChangePassword()}>Change Password</Button>
                         </Form>
                     </div>
