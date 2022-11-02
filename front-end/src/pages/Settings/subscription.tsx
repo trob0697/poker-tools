@@ -1,12 +1,12 @@
 import { ReactElement } from "react";
 import { Button } from "react-bootstrap";
 
-function Subscription() : ReactElement{
+function Subscription() : ReactElement {
     function handleClick() : void {
         alert("Feature disabled!");
-    }
+    };
 
-    return(
+    return (
         <div className="settings-subpage-container">
             <h2 className="settings-subpage-header">Subscription</h2>
             <div className="settings-s-container">

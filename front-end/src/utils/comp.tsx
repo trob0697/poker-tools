@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
-function Comp() : ReactElement{
-    return(
+function Comp() : ReactElement {
+    return (
         <div style={{color: "white"}}>Comp</div>
     );
 }

@@ -3,7 +3,7 @@ import { ReactElement } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-function NavigationBar() : ReactElement{
+function NavigationBar() : ReactElement {
     return (
         <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect style={{paddingLeft: "2vw"}}>
             <Navbar.Brand href="/">

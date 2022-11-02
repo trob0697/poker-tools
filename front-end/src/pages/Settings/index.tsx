@@ -1,15 +1,24 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AccountDetails from "./accountDetails";
-import Subscription from "./subscription"
+import Subscription from "./subscription";
 import TermsOfService from "./termsOfService";
 
-function Settings() : ReactElement{
+function Settings() : ReactElement {
     const navigate = useNavigate();
-    const [currentPage, setCurrentPage] = useState<string>("Account Details")
+    const [currentPage, setCurrentPage] = useState<string>("Account Details");
 
-    function renderTab() : ReactElement | any {
+    useEffect(() => {
+        const accessToken : string|null = localStorage.getItem("accessToken");
+        const refreshToken : string|null = localStorage.getItem("refreshToken");
+        if(accessToken === null && refreshToken === null){
+            alert("Unauthorized");
+            navigate("/home");
+        }
+    });
+
+    function renderTab() : ReactElement {
         switch(currentPage){
             case "Account Details":
                 return <AccountDetails/>;
@@ -20,13 +29,13 @@ function Settings() : ReactElement{
             default:
                 return <AccountDetails/>;
         }
-    }
+    };
 
 
     function onClickLogout() : void {
         // TODO: API to logout
         navigate("/home");
-    }
+    };
 
     return (
         <div className="d-flex align-items-stretch settings-page-container">

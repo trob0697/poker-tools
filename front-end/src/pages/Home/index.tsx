@@ -39,7 +39,7 @@ function Home() : ReactElement {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         clearAllFields()
-    }
+    };
 
     function checkTokens() : Boolean {
         const accessToken : string|null = localStorage.getItem("accessToken");
@@ -50,9 +50,9 @@ function Home() : ReactElement {
         else{
             return false;
         }
-    }
+    };
 
-    return(
+    return (
         <div className="background">
             <div className="home-boxes-container">
                 <div className="home-box" >
@@ -104,7 +104,7 @@ function Home() : ReactElement {
                 }
             </div>
         </div>
-    )
+    );
 };
 
 export default Home;

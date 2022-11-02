@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
-function TermsOfService() : ReactElement{
-    return(
+function TermsOfService() : ReactElement {
+    return (
         <div className="settings-subpage-container">
             <h2 className="settings-subpage-header">Terms of Service</h2>
             <div className="settings-tos-content">
@@ -37,7 +37,7 @@ function TermsOfService() : ReactElement{
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default TermsOfService;
