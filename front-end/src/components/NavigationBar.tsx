@@ -1,11 +1,11 @@
-import { ReactElement } from "react";
+import React from "react";
 
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-function NavigationBar() : ReactElement {
+function NavigationBar(): React.ReactElement {
     return (
-        <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect style={{paddingLeft: "2vw"}}>
+        <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect style={{ paddingLeft: "2vw" }}>
             <Navbar.Brand href="/">
                 <img src={require("../assets/logo.png")} alt="bomb" height="30vh" />{" "}PokerTools.com
             </Navbar.Brand>

@@ -1,19 +1,17 @@
 import { db } from "../database/db";
-import { User } from "../models/models"
+import { User } from "../models/models";
 
-class UsersDAO {
+export class UsersDAO {
     async createUser(email: string, password: string): Promise<void> {
         await db("users")
             .insert({
-                email: email,
-                password: password
+                email,
+                password
             });
     }
 
-    async getUser(email: string): Promise<User>{
-        const user: User = await db("users").where({email: email}).first();
+    async getUser(email: string): Promise<User> {
+        const user: User = await db("users").where({ email }).first();
         return user;
     }
-}
-
-module.exports = new UsersDAO();
+};

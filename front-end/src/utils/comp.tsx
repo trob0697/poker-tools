@@ -1,8 +1,8 @@
-import { ReactElement } from "react";
+import React from "react";
 
-function Comp() : ReactElement {
+function Comp(): React.ReactElement {
     return (
-        <div style={{color: "white"}}>Comp</div>
+        <div style={{ color: "white" }}>Comp</div>
     );
 }
 

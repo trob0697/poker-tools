@@ -1,5 +1,6 @@
 version: "3"
 services:
+  # Development
   front-end-dev:
     container_name: front-end-dev
     build:
@@ -24,6 +25,7 @@ services:
       - ./back-end/.env
     environment:
       - NODE_ENV=development
+  # Production
   front-end-prod:
     container_name: front-end-prod
     build:

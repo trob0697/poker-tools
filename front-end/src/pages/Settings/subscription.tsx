@@ -1,8 +1,8 @@
-import { ReactElement } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 
-function Subscription() : ReactElement {
-    function handleClick() : void {
+function Subscription(): React.ReactElement {
+    function handleClick(): void {
         alert("Feature disabled!");
     };
 

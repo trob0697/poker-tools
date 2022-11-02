@@ -1,7 +1,7 @@
-import { ReactElement, useState } from "react";
+import React, { useState } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 
-function AccountDetails() : ReactElement {
+function AccountDetails(): React.ReactElement {
     const [newEmail, setNewEmail] = useState<string>("");
     const [confirmNewEmail, setConfirmNewEmail] = useState<string>("");
     const [newEmailPassword, setNewEmailPassword] = useState<string>("");
@@ -9,7 +9,7 @@ function AccountDetails() : ReactElement {
     const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
     const [oldPassword, setOldPassword] = useState<string>("");
 
-    function clearAllFields() : void {
+    function clearAllFields(): void {
         setNewEmail("");
         setConfirmNewEmail("");
         setNewEmailPassword("");
@@ -18,12 +18,12 @@ function AccountDetails() : ReactElement {
         setOldPassword("");
     };
 
-    function onChangeEmail() : void {
+    function onChangeEmail(): void {
         // TODO: chang email
         clearAllFields();
     };
 
-    function onChangePassword() : void {
+    function onChangePassword(): void {
         // TODO: change password
         clearAllFields();
     };

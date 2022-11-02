@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import React from "react";
 
-function TermsOfService() : ReactElement {
+function TermsOfService(): React.ReactElement {
     return (
         <div className="settings-subpage-container">
             <h2 className="settings-subpage-header">Terms of Service</h2>

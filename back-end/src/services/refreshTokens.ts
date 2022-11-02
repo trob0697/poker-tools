@@ -1,21 +1,21 @@
-const refreshTokensDAO = require("../daos/refreshTokens");
+import { RefreshTokenDAO } from "../daos/refreshTokens";
 
-class UsersService{
-    async hasToken(token: string): Promise<Boolean>{
-        return await refreshTokensDAO.hasToken(token);
+const refreshTokensDao = new RefreshTokenDAO();
+
+export class RefreshTokenService {
+    async hasToken(token: string): Promise<boolean> {
+        return await refreshTokensDao.hasToken(token);
     }
 
     async insertToken(token: string): Promise<void> {
-        await refreshTokensDAO.insertToken(token);
+        await refreshTokensDao.insertToken(token);
     }
 
     async removeToken(token: string): Promise<void> {
-        await refreshTokensDAO.removeToken(token);
+        await refreshTokensDao.removeToken(token);
     }
 
     async removeExpiredTokens(): Promise<void> {
-        await refreshTokensDAO.removeExpiredTokens();
+        await refreshTokensDao.removeExpiredTokens();
     }
 }
-
-module.exports = new UsersService();

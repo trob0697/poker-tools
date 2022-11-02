@@ -1,14 +1,14 @@
-const usersDAO = require("../daos/users");
-import { User } from "../models/models"
+import { User } from "../models/models";
+import { UsersDAO } from "../daos/users";
 
-class UsersService{
-    async createUser(email: string , password: string): Promise<void>{
-        await usersDAO.createUser(email, password);
+const usersDao = new UsersDAO();
+
+export class UsersService {
+    async createUser(email: string, password: string): Promise<void> {
+        await usersDao.createUser(email, password);
     }
 
     async getUser(email: string): Promise<User> {
-        return await usersDAO.getUser(email);
+        return await usersDao.getUser(email);
     }
 }
-
-module.exports = new UsersService();

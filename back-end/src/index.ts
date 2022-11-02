@@ -1,14 +1,16 @@
-require("dotenv").config()
 import express, { Application } from "express";
+import dotenv from "dotenv";
 
 import { equityCalculatorRouter } from "./routes/equityCalculator";
 import { userRouter } from "./routes/user";
 import { authRouter } from "./routes/auth";
 
-import  { authenticateToken } from "./middlewares/auth";
+import { authenticateToken } from "./middlewares/auth";
+
+dotenv.config();
 
 const app: Application = express();
-const port: string = process.env.port || "4000";
+const port: string = process.env.port ?? "4000";
 
 app.use(express.json());
 app.use("/api/equity-calculator", authenticateToken, equityCalculatorRouter);
