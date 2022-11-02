@@ -1,4 +1,4 @@
-# PokerTools
+# PokerToolsV2
 
 A website containing tools useful to pokers players.  
 Tech Stack:
