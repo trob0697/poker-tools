@@ -11,15 +11,6 @@ services:
       - ./front-end/src:/app/src
     environment:
       - NODE_ENV=development
-  front-end-prod:
-    container_name: front-end-prod
-    build:
-      context: ./front-end
-      dockerfile: Dockerfile.prod
-    ports:
-      - "8080:80"
-    environment:
-      - NODE_ENV=production
   back-end-dev:
     container_name: back-end-dev
     build:
@@ -33,6 +24,15 @@ services:
       - ./back-end/.env
     environment:
       - NODE_ENV=development
+  front-end-prod:
+    container_name: front-end-prod
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
   back-end-prod:
     container_name: back-end-prod
     build:
