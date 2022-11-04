@@ -1,13 +1,4 @@
 # PokerToolsV2
-
-A website containing tools useful to pokers players.  
-Tech Stack:
-- React.js
-- Express.js
-- PostgreSQL
-- Knex.js
-- Docker
-
 ## Getting Started
 1. Clone repository
 ```
