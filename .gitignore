@@ -39,7 +39,7 @@ coverage
 !.vscode/extensions.json
 
 # private keys
-/back-end/.env
+back-end/.env
 config
 
 # misc
