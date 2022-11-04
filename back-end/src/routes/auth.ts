@@ -85,7 +85,7 @@ router.delete("/all-tokens", (async (req: Request, res: Response) => {
     }
 }) as RequestHandler);
 
-router.delete("/all-tokens", (async (req: Request, res: Response) => {
+router.delete("/test", (async (req: Request, res: Response) => {
     res.status(200).send("OK");
 }) as RequestHandler);
 
