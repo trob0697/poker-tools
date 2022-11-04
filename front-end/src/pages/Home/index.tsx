@@ -40,7 +40,7 @@ function Home(): React.ReactElement {
         clearAllFields();
     };
 
-    function checkTokens(): boolean {
+    function checkForTokens(): boolean {
         const accessToken: string | null = localStorage.getItem("accessToken");
         const refreshToken: string | null = localStorage.getItem("refreshToken");
         if (accessToken !== null && refreshToken !== null) {
@@ -65,7 +65,7 @@ function Home(): React.ReactElement {
                         </ul>
                     </div>
                 </div>
-                {checkTokens()
+                {checkForTokens()
                     ? (<div className="home-box">
                         <div>
                             <div className="logged-in-text">Welcome</div>
