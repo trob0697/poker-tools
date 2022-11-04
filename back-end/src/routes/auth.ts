@@ -12,6 +12,10 @@ const refreshTokenService = new RefreshTokenService();
 const accessTokenSecret: string = process.env.ACCESS_TOKEN_SECRET ?? "secret";
 const refreshTokenSecret: string = process.env.REFRESH_TOKEN_SECRET ?? "secret";
 
+router.get("/test", (async (req: Request, res: Response) => {
+    res.status(200).send("OK");
+}) as RequestHandler);
+
 router.post("/register", (async (req: Request, res: Response) => {
     try {
         const { email, password }: UserCredentials = req.body;
@@ -83,10 +87,6 @@ router.delete("/all-tokens", (async (req: Request, res: Response) => {
     } catch (err) {
         res.status(500).send(err);
     }
-}) as RequestHandler);
-
-router.delete("/test", (async (req: Request, res: Response) => {
-    res.status(200).send("OK");
 }) as RequestHandler);
 
 export const authRouter: Router = router;
