@@ -53,7 +53,7 @@ function Settings(): React.ReactElement {
 
     return (
         <div className="d-flex align-items-stretch settings-page-container">
-            <ul className="nav flex-column settings-tab-container">
+            <ul className="nav flex-column settings-tab-container no-select">
                 <li className={currentPage === "Account Details" ? "settings-tab-selected" : ""} onClick={() => setCurrentPage("Account Details")}>Account Details</li>
                 <li className={currentPage === "Subscription" ? "settings-tab-selected" : ""} onClick={() => setCurrentPage("Subscription")}>Subscription</li>
                 <li className={currentPage === "Terms of Service" ? "settings-tab-selected" : ""} onClick={() => setCurrentPage("Terms of Service")}>Terms of Service</li>
