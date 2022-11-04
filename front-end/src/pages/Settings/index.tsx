@@ -47,6 +47,7 @@ function Settings(): React.ReactElement {
         } finally {
             localStorage.removeItem("accessToken");
             localStorage.removeItem("refreshToken");
+            navigate("/home");
         }
     };
 
