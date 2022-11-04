@@ -11,6 +11,7 @@ router.put("/email", (async (req: Request, res: Response) => {
     try {
         const user = (req as RequestWithUser).user as User;
         const { email, password }: UserCredentials = req.body;
+        // TODO: Check is email is valid and send verification msg
         if (!(await bcrypt.compare(password, user.password))) {
             return res.status(400).send("Password incorrect");
         }
@@ -37,11 +38,11 @@ router.put("/password", (async (req: Request, res: Response) => {
 }) as RequestHandler);
 
 router.put("/verify", (async (req: Request, res: Response) => {
-    // const user = (req as RequestWithUser).user;
+    res.status(200).send();
 }) as RequestHandler);
 
 router.put("/activate", (async (req: Request, res: Response) => {
-    // const user = (req as RequestWithUser).user;
+    res.status(200).send();
 }) as RequestHandler);
 
 export const userRouter: Router = router;

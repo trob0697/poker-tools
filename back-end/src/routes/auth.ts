@@ -15,6 +15,7 @@ const refreshTokenSecret: string = process.env.REFRESH_TOKEN_SECRET ?? "secret";
 router.post("/register", (async (req: Request, res: Response) => {
     try {
         const { email, password }: UserCredentials = req.body;
+        // TODO: Check is email is valid and send verification msg
         const hashedPassword: string = await bcrypt.hash(password, 10);
         await userService.createUser(email, hashedPassword);
         return res.status(201).send();
