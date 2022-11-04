@@ -14,38 +14,6 @@ function Home(): React.ReactElement {
         confirmPassword: ""
     });
 
-    function clearAllFields(): void {
-        setCredentials({
-            email: "",
-            password: "",
-            confirmPassword: ""
-        });
-    };
-
-    async function login(): Promise<void> {
-        // TODO: API to login
-        localStorage.setItem("accessToken", "token");
-        localStorage.setItem("refreshToken", "token");
-        try {
-            const { email, password } = credentials;
-            await axios.post("/auth/login", {
-                email,
-                password
-            })
-                .then(function(res) {
-                    console.log(res);
-                })
-                .catch(function (err) {
-                    throw new Error(err);
-                });
-        } catch (err) {
-            alert(err);
-        } finally {
-            clearAllFields();
-        }
-        clearAllFields();
-    };
-
     async function register(): Promise<void> {
         try {
             const { email, password, confirmPassword } = credentials;
@@ -67,11 +35,53 @@ function Home(): React.ReactElement {
         }
     };
 
-    function onLogout(): void {
-        // TODO: API to logout
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        clearAllFields();
+    async function login(): Promise<void> {
+        try {
+            const { email, password } = credentials;
+            await axios.post("/api/auth/login", {
+                email,
+                password
+            })
+                .then(function(res) {
+                    const { accessToken, refreshToken } = res.data;
+                    localStorage.setItem("accessToken", accessToken);
+                    localStorage.setItem("refreshToken", refreshToken);
+                })
+                .catch(function (err) {
+                    throw new Error(err);
+                });
+        } catch (err) {
+            alert(err);
+        } finally {
+            clearAllFields();
+        }
+    };
+
+    async function onLogout(): Promise<void> {
+        try {
+            const refreshToken: string | null = localStorage.getItem("refreshToken");
+            if (refreshToken === null) return;
+            await axios.delete("/api/auth/logout", {
+                data: { refreshToken }
+            })
+                .catch(function (err) {
+                    throw new Error(err);
+                });
+        } catch (err) {
+            alert(err);
+        } finally {
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("refreshToken");
+            clearAllFields();
+        }
+    };
+
+    function clearAllFields(): void {
+        setCredentials({
+            email: "",
+            password: "",
+            confirmPassword: ""
+        });
     };
 
     function checkForTokens(): boolean {
@@ -103,7 +113,7 @@ function Home(): React.ReactElement {
                     ? (<div className="home-box">
                         <div>
                             <div className="logged-in-text">Welcome</div>
-                            <Button className="form-item" variant="danger" onClick={() => onLogout()}>Logout</Button>
+                            <Button className="form-item" variant="danger" onClick={() => { void onLogout(); }}>Logout</Button>
                         </div>
                     </div>)
                     : (<div className="home-box">
