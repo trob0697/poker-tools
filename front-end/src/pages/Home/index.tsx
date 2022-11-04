@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { EventText, HomeCredentials } from "../../utils/models";
-
+import axios from "axios";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+
+import { EventText, HomeCredentials } from "../../utils/models";
+
+const BASE_URL = process.env.REACT_APP_BASE_URL as string;
 
 function Home(): React.ReactElement {
     const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -21,16 +24,50 @@ function Home(): React.ReactElement {
         });
     };
 
-    function login(): void {
+    async function login(): Promise<void> {
         // TODO: API to login
         localStorage.setItem("accessToken", "token");
         localStorage.setItem("refreshToken", "token");
+        try {
+            const { email, password } = credentials;
+            await axios.post(BASE_URL + "auth/login", {
+                email,
+                password
+            })
+                .then(function(res) {
+                    console.log(res);
+                })
+                .catch(function (err) {
+                    throw new Error(err);
+                });
+        } catch (err) {
+            alert(err);
+        } finally {
+            clearAllFields();
+        }
         clearAllFields();
     };
 
-    function register(): void {
-        // TODO: API to create account
-        clearAllFields();
+    async function register(): Promise<void> {
+        console.log(process.env);
+        // try {
+        //     const { email, password, confirmPassword } = credentials;
+        //     if (password !== confirmPassword) throw new Error("Passwords are not identical");
+        //     await axios.post(BASE_URL + "auth/register", {
+        //         email,
+        //         password
+        //     })
+        //         .then(function() {
+        //             alert("Account created successfully");
+        //         })
+        //         .catch(function (err) {
+        //             throw new Error(err);
+        //         });
+        // } catch (err) {
+        //     alert(err);
+        // } finally {
+        //     clearAllFields();
+        // }
     };
 
     function onLogout(): void {
@@ -83,7 +120,7 @@ function Home(): React.ReactElement {
                                     <Form className="form-group">
                                         <FormControl type="email" placeholder="Email" value={credentials.email} onChange={(e: EventText) => setCredentials({ ...credentials, email: e.target.value })}/>
                                         <FormControl type="password" placeholder="Password" value={credentials.password} onChange={(e: EventText) => setCredentials({ ...credentials, password: e.target.value })}/>
-                                        <Button variant="danger" onClick={() => login()}>Login</Button>
+                                        <Button variant="danger" onClick={() => { void login(); }}>Login</Button>
                                     </Form>
                                 </div>)
                                 : (<div>
@@ -91,7 +128,7 @@ function Home(): React.ReactElement {
                                         <FormControl type="email" placeholder="Email" value={credentials.email} onChange={(e: EventText) => setCredentials({ ...credentials, email: e.target.value })}/>
                                         <FormControl type="password" placeholder="Password" value={credentials.password} onChange={(e: EventText) => setCredentials({ ...credentials, password: e.target.value })}/>
                                         <FormControl type="password" placeholder="Confirm Password" value={credentials.confirmPassword} onChange={(e: EventText) => setCredentials({ ...credentials, confirmPassword: e.target.value })}/>
-                                        <Button variant="danger" onClick={() => register()}>Create Account</Button>
+                                        <Button variant="danger" onClick={() => { void register(); }}>Create Account</Button>
                                     </Form>
                                 </div>)
                             }
