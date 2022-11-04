@@ -1,5 +1,6 @@
 import { Router, Request, Response, RequestHandler } from "express";
 import bcrypt from "bcrypt";
+
 import { User, UserCredentials, UserChangeCredentials, RequestWithUser } from "../models/models";
 import { UsersService } from "../services/users";
 

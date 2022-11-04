@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import NavigationBar from "./components/navigationBar";
-
 import Home from "./pages/Home/index";
 import EquityCalculator from "./pages/EquityCalculator/index";
 import Settings from "./pages/Settings/index";

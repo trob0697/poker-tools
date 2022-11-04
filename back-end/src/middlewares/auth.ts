@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
+
 import { User, RequestWithUser } from "../models/models";
 
 const accessTokenSecret: string = process.env.ACCESS_TOKEN_SECRET ?? "secret";

@@ -9,10 +9,10 @@ export type EventText = React.ChangeEvent<HTMLInputElement>
 //------------------------------------------------------------------------
 // Types
 //------------------------------------------------------------------------
-export interface HomeCredentials {
+export interface Credentials {
     email: string
     password: string
-    confirmPassword: string
+    confirmPassword?: string
 };
 
 //------------------------------------------------------------------------

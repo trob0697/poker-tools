@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Form, FormControl, Button } from "react-bootstrap";
+import axios from "axios";
 
 function AccountDetails(): React.ReactElement {
     const [newEmail, setNewEmail] = useState<string>("");

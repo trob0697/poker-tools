@@ -1,5 +1,5 @@
-import { User } from "../models/models";
 import { UsersDAO } from "../daos/users";
+import { User } from "../models/models";
 
 const usersDao = new UsersDAO();
 

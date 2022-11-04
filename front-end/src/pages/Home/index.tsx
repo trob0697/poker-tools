@@ -1,14 +1,12 @@
 import React, { useState } from "react";
+import { Form, FormControl, Button } from "react-bootstrap";
 import axios from "axios";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
 
-import { EventText, HomeCredentials } from "../../utils/models";
+import { EventText, Credentials } from "../../utils/models";
 
 function Home(): React.ReactElement {
     const [isLogin, setIsLogin] = useState<boolean>(true);
-    const [credentials, setCredentials] = useState<HomeCredentials>({
+    const [credentials, setCredentials] = useState<Credentials>({
         email: "",
         password: "",
         confirmPassword: ""

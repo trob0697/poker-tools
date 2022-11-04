@@ -141,7 +141,6 @@ body{
     width: max-content;
     margin-bottom: 0.75vh;
     color: #FFFFFF8C;
-    user-select: none;
 }
 
 .settings-tab-container li:hover{
