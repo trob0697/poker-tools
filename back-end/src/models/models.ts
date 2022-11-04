@@ -1,11 +1,6 @@
 import { Request } from "express";
 import { JwtPayload } from "jsonwebtoken";
 
-export interface UserCredentials {
-    email: string
-    password: string
-}
-
 export interface User {
     id: string
     email: string
@@ -16,6 +11,16 @@ export interface User {
     iat?: Date
 }
 
+export interface UserCredentials {
+    email: string
+    password: string
+}
+
+export interface UserChangeCredentials {
+    password: string
+    newPassword: string
+}
+
 export interface RequestWithUser extends Request {
-    user: string | JwtPayload
+    user: User | JwtPayload
 }

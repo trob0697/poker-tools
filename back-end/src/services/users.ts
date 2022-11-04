@@ -11,4 +11,12 @@ export class UsersService {
     async getUser(email: string): Promise<User> {
         return await usersDao.getUser(email);
     }
+
+    async changeEmail(id: string, newEmail: string): Promise<void> {
+        return await usersDao.changeEmail(id, newEmail);
+    }
+
+    async changePassword(id: string, newPassword: string): Promise<void> {
+        return await usersDao.changePassword(id, newPassword);
+    }
 }

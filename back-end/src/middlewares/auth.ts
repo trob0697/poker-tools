@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-
-import { RequestWithUser } from "../models/models";
+import { User, RequestWithUser } from "../models/models";
 
 const accessTokenSecret: string = process.env.ACCESS_TOKEN_SECRET ?? "secret";
 
@@ -13,7 +12,8 @@ export function authenticateToken(req: Request, res: Response, next: NextFunctio
             res.sendStatus(401);
             return;
         }
-        const user = jwt.verify(token, accessTokenSecret);
+        const user: User = jwt.verify(token, accessTokenSecret) as User;
+        delete user.iat;
         (req as RequestWithUser).user = user;
         next();
     } catch (err) {

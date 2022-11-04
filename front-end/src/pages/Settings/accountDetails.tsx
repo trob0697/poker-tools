@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Form, FormControl, Button } from "react-bootstrap";
 
 function AccountDetails(): React.ReactElement {
@@ -9,6 +10,44 @@ function AccountDetails(): React.ReactElement {
     const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
     const [oldPassword, setOldPassword] = useState<string>("");
 
+    async function onChangeEmail(): Promise<void> {
+        try {
+            const accessToken: string | null = localStorage.getItem("accessToken");
+            if (accessToken === null) throw new Error("Access denied");
+            if (newEmail !== confirmNewEmail) throw new Error("Emails are not identical");
+            await axios.put("/api/user/email",
+                { email: newEmail, password: newEmailPassword },
+                { headers: { Authorization: `Bearer ${accessToken}` } }
+            )
+                .catch(function (err) {
+                    throw new Error(err);
+                });
+        } catch (err) {
+            alert(err);
+        } finally {
+            clearAllFields();
+        }
+    };
+
+    async function onChangePassword(): Promise<void> {
+        try {
+            const accessToken: string | null = localStorage.getItem("accessToken");
+            if (accessToken === null) throw new Error("Access denied");
+            if (newPassword !== confirmNewPassword) throw new Error("Passwords are not identical");
+            await axios.put("/api/user/password",
+                { password: oldPassword, newPassword },
+                { headers: { Authorization: `Bearer ${accessToken}` } }
+            )
+                .catch(function (err) {
+                    throw new Error(err);
+                });
+        } catch (err) {
+            alert(err);
+        } finally {
+            clearAllFields();
+        }
+    };
+
     function clearAllFields(): void {
         setNewEmail("");
         setConfirmNewEmail("");
@@ -16,16 +55,6 @@ function AccountDetails(): React.ReactElement {
         setNewPassword("");
         setConfirmNewPassword("");
         setOldPassword("");
-    };
-
-    function onChangeEmail(): void {
-        // TODO: chang email
-        clearAllFields();
-    };
-
-    function onChangePassword(): void {
-        // TODO: change password
-        clearAllFields();
     };
 
     return (
@@ -39,7 +68,7 @@ function AccountDetails(): React.ReactElement {
                             <FormControl className="form-item settings-ad-form-item" type="email" placeholder="New Email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)}/>
                             <FormControl className="form-item settings-ad-form-item" type="email" placeholder="Confirm New Email" value={confirmNewEmail} onChange={(e) => setConfirmNewEmail(e.target.value)}/>
                             <FormControl className="form-item settings-ad-form-item" type="password" placeholder="Password" value={newEmailPassword} onChange={(e) => setNewEmailPassword(e.target.value)}/>
-                            <Button className="form-item settings-ad-form-item" variant="danger" onClick={() => onChangeEmail()}>Change Email</Button>
+                            <Button className="form-item settings-ad-form-item" variant="danger" onClick={() => { void onChangeEmail(); }}>Change Email</Button>
                         </Form>
                     </div>
                 </div>
@@ -50,7 +79,7 @@ function AccountDetails(): React.ReactElement {
                             <FormControl className="form-item settings-ad-form-item" type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
                             <FormControl className="form-item settings-ad-form-item" type="password" placeholder="Confirm New Password" value={confirmNewPassword} onChange={(e) => setConfirmNewPassword(e.target.value)}/>
                             <FormControl className="form-item settings-ad-form-item" type="password" placeholder="Password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)}/>
-                            <Button className="form-item settings-ad-form-item" variant="danger" onClick={() => onChangePassword()}>Change Password</Button>
+                            <Button className="form-item settings-ad-form-item" variant="danger" onClick={() => { void onChangePassword(); }}>Change Password</Button>
                         </Form>
                     </div>
                 </div>
