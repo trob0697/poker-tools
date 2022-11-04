@@ -28,4 +28,9 @@ export class RefreshTokenDAO {
             .where("expiry", "<", new Date())
             .del();
     }
+
+    async removeAllTokens(): Promise<void> {
+        await db("refresh_tokens")
+            .del();
+    }
 }

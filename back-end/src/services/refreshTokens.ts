@@ -18,4 +18,8 @@ export class RefreshTokenService {
     async removeExpiredTokens(): Promise<void> {
         await refreshTokensDao.removeExpiredTokens();
     }
+
+    async removeAllTokens(): Promise<void> {
+        await refreshTokensDao.removeAllTokens();
+    }
 }

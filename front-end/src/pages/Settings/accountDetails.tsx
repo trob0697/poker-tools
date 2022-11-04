@@ -22,6 +22,7 @@ function AccountDetails(): React.ReactElement {
                 .catch(function (err) {
                     throw new Error(err);
                 });
+            alert("Email has been changed successfully");
         } catch (err) {
             alert(err);
         } finally {
@@ -41,6 +42,7 @@ function AccountDetails(): React.ReactElement {
                 .catch(function (err) {
                     throw new Error(err);
                 });
+            alert("Password has been changed successfully");
         } catch (err) {
             alert(err);
         } finally {

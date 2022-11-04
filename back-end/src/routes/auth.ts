@@ -74,4 +74,13 @@ router.delete("/tokens", (async (req: Request, res: Response) => {
     }
 }) as RequestHandler);
 
+router.delete("/all-tokens", (async (req: Request, res: Response) => {
+    try {
+        await refreshTokenService.removeAllTokens();
+        res.status(204).send();
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}) as RequestHandler);
+
 export const authRouter: Router = router;
