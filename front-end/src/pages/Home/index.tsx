@@ -6,8 +6,6 @@ import Button from "react-bootstrap/Button";
 
 import { EventText, HomeCredentials } from "../../utils/models";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL as string;
-
 function Home(): React.ReactElement {
     const [isLogin, setIsLogin] = useState<boolean>(true);
     const [credentials, setCredentials] = useState<HomeCredentials>({
@@ -30,7 +28,7 @@ function Home(): React.ReactElement {
         localStorage.setItem("refreshToken", "token");
         try {
             const { email, password } = credentials;
-            await axios.post(BASE_URL + "auth/login", {
+            await axios.post("/auth/login", {
                 email,
                 password
             })
@@ -49,25 +47,24 @@ function Home(): React.ReactElement {
     };
 
     async function register(): Promise<void> {
-        console.log(process.env);
-        // try {
-        //     const { email, password, confirmPassword } = credentials;
-        //     if (password !== confirmPassword) throw new Error("Passwords are not identical");
-        //     await axios.post(BASE_URL + "auth/register", {
-        //         email,
-        //         password
-        //     })
-        //         .then(function() {
-        //             alert("Account created successfully");
-        //         })
-        //         .catch(function (err) {
-        //             throw new Error(err);
-        //         });
-        // } catch (err) {
-        //     alert(err);
-        // } finally {
-        //     clearAllFields();
-        // }
+        try {
+            const { email, password, confirmPassword } = credentials;
+            if (password !== confirmPassword) throw new Error("Passwords are not identical");
+            await axios.post("/api/auth/register", {
+                email,
+                password
+            })
+                .then(function() {
+                    alert("Account created successfully");
+                })
+                .catch(function (err) {
+                    throw new Error(err);
+                });
+        } catch (err) {
+            alert(err);
+        } finally {
+            clearAllFields();
+        }
     };
 
     function onLogout(): void {
