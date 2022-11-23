@@ -2,7 +2,7 @@
 ## Getting Started
 1. Clone repository
 ```
-$ git clone https://github.com/trob0697/pokertools-v2.git
+$ git clone https://github.com/trob0697/poker-tools.git
 ```
 2. Open local instance
 ```
