@@ -1,4 +1,4 @@
-# PokerToolsV2
+# Poker Tools
 ## Getting Started
 1. Clone repository
 ```
