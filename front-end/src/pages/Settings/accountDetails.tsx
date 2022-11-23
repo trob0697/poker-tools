@@ -61,7 +61,7 @@ function AccountDetails(): React.ReactElement {
 
     return (
         <div className="settings-subpage-container">
-            <h2 className="settings-subpage-header"> Account Details</h2>
+            <h2 className="settings-subpage-header">Account Details</h2>
             <div className="settings-ad-container">
                 <div className="settings-ad-sub-container">
                     <span>Change Email:</span>

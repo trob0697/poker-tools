@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 import axios from "axios";
 
-import { EventText, Credentials } from "../../utils/models";
+import { Credentials } from "../../utils/models";
 
 function Home(): React.ReactElement {
     const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -95,7 +95,7 @@ function Home(): React.ReactElement {
     return (
         <div className="background">
             <div className="home-boxes-container">
-                <div className="home-box" >
+                <div className="home-box">
                     <div>
                         <h1 className="landing-description">Tools to improve your game and beat the pool!</h1>
                         <ul className="features-list">
@@ -123,16 +123,16 @@ function Home(): React.ReactElement {
                             {isLogin
                                 ? (<div>
                                     <Form className="form-group">
-                                        <FormControl type="email" placeholder="Email" value={credentials.email} onChange={(e: EventText) => setCredentials({ ...credentials, email: e.target.value })}/>
-                                        <FormControl type="password" placeholder="Password" value={credentials.password} onChange={(e: EventText) => setCredentials({ ...credentials, password: e.target.value })}/>
+                                        <FormControl type="email" placeholder="Email" value={credentials.email} onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}/>
+                                        <FormControl type="password" placeholder="Password" value={credentials.password} onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}/>
                                         <Button variant="danger" onClick={() => { void login(); }}>Login</Button>
                                     </Form>
                                 </div>)
                                 : (<div>
                                     <Form className="form-group">
-                                        <FormControl type="email" placeholder="Email" value={credentials.email} onChange={(e: EventText) => setCredentials({ ...credentials, email: e.target.value })}/>
-                                        <FormControl type="password" placeholder="Password" value={credentials.password} onChange={(e: EventText) => setCredentials({ ...credentials, password: e.target.value })}/>
-                                        <FormControl type="password" placeholder="Confirm Password" value={credentials.confirmPassword} onChange={(e: EventText) => setCredentials({ ...credentials, confirmPassword: e.target.value })}/>
+                                        <FormControl type="email" placeholder="Email" value={credentials.email} onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}/>
+                                        <FormControl type="password" placeholder="Password" value={credentials.password} onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}/>
+                                        <FormControl type="password" placeholder="Confirm Password" value={credentials.confirmPassword} onChange={(e) => setCredentials({ ...credentials, confirmPassword: e.target.value })}/>
                                         <Button variant="danger" onClick={() => { void register(); }}>Create Account</Button>
                                     </Form>
                                 </div>)

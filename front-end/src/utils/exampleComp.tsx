@@ -1,9 +1,9 @@
 import React from "react";
 
-function Comp(): React.ReactElement {
+function ExampleComp(): React.ReactElement {
     return (
         <div style={{ color: "white" }}>Comp</div>
     );
 }
 
-export default Comp;
+export default ExampleComp;

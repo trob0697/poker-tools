@@ -5,7 +5,7 @@ function NavigationBar(): React.ReactElement {
     return (
         <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect style={{ paddingLeft: "2vw" }}>
             <Navbar.Brand href="/">
-                <img src={require("../assets/logo.png")} alt="bomb" height="30vh" />{" "}PokerTools.com
+                <img src={require("../assets/logo.png")} alt="bomb" height="30vh"/>{" "}PokerTools.com
             </Navbar.Brand>
             <Nav className="me-auto" activeKey={window.location.pathname}>
                 <Nav.Link href="/home">Home</Nav.Link>
