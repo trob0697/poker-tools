@@ -6,7 +6,7 @@ $ git clone https://github.com/trob0697/poker-tools.git
 ```
 2. Open local instance
 ```
-$ cd pokertools-v2
+$ cd poker-tools
 ```
 3. Bring up
 ```
