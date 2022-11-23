@@ -1,18 +1,18 @@
 {
-  "name": "pokertools-v2",
+  "name": "poker-tools",
   "version": "2.0.0",
   "description": "A web app providing tools useful to pokers players",
   "main": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trob0697/pokertools-v2.git"
+    "url": "git+https://github.com/trob0697/poker-tools.git"
   },
   "author": "Tahreak Robinson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/trob0697/pokertools-v2/issues"
+    "url": "https://github.com/trob0697/poker-tools/issues"
   },
-  "homepage": "https://github.com/trob0697/pokertools-v2#readme",
+  "homepage": "https://github.com/trob0697/poker-tools#readme",
   "scripts": {
     "install-all": "npm i && cd front-end && npm i && cd ../back-end && npm i && cd ..",
     "front-end": "cd front-end && npm start",

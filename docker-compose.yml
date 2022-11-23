@@ -25,27 +25,27 @@ services:
       - ./back-end/.env
     environment:
       - NODE_ENV=development
-  # Production
-  front-end-prod:
-    container_name: front-end-prod
-    build:
-      context: ./front-end
-      dockerfile: Dockerfile.prod
-    ports:
-      - "8080:80"
-    environment:
-      - NODE_ENV=production
-  back-end-prod:
-    container_name: back-end-prod
-    build:
-      context: ./back-end
-      dockerfile: Dockerfile.prod
-    ports:
-      - "4000:4000"
-    env_file:
-      - ./back-end/.env
-    environment:
-      - NODE_ENV=production
+#   # Production
+#   front-end-prod:
+#     container_name: front-end-prod
+#     build:
+#       context: ./front-end
+#       dockerfile: Dockerfile.prod
+#     ports:
+#       - "8080:80"
+#     environment:
+#       - NODE_ENV=production
+#   back-end-prod:
+#     container_name: back-end-prod
+#     build:
+#       context: ./back-end
+#       dockerfile: Dockerfile.prod
+#     ports:
+#       - "4000:4000"
+#     env_file:
+#       - ./back-end/.env
+#     environment:
+#       - NODE_ENV=production
 #   database:
 #     container_name: database-dev
 #     image: postgres
@@ -59,11 +59,11 @@ services:
 #       - POSTGRES_DB: ptdb
 # volumes:
 #   pgdata:
-  # web-dev:
-  #   container_name: web-dev
-  #   ports:
-  #     - "2000:2000"
-  #   depends_on:
-  #     - front-end-dev
-  #     - back-end-dev
-  #     - database-dev  
+#   web-dev:
+#     container_name: web-dev
+#     ports:
+#       - "2000:2000"
+#     depends_on:
+#       - front-end-dev
+#       - back-end-dev
+#       - database-dev  
