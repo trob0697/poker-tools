@@ -73,7 +73,7 @@ function HandModal(props: PlayerModalProps): React.ReactElement {
                         <Row className="flex-nowrap" key={i}>
                             {item.map((subitem, j) => {
                                 return (
-                                    <Col className={"board-modal-card " + (i % 2 === 0 ? "red" : "black")} onClick={() => onClickCard(i, j)} style={handMatrix[i][j] ? { backgroundColor: "yellow" } : {}} key={j}>
+                                    <Col className={"no-select board-modal-card " + (i % 2 === 0 ? "red" : "black")} onClick={() => onClickCard(i, j)} style={handMatrix[i][j] ? { backgroundColor: "yellow" } : {}} key={j}>
                                         <div>{subitem}</div>
                                         {(() => {
                                             switch (i) {
@@ -163,7 +163,7 @@ function RangeModal(props: PlayerModalProps): React.ReactElement {
                             <Row key={i} className="justify-content-center" xs="auto" style={{ width: "fit-content" }}>
                                 {item.map((subitem, j) => {
                                     return (
-                                        <div key={j} className="square player-range-modal-square" style={{ background: getDisplay(i, j), textAlign: "center" }} onMouseDown={() => onClickChart(i, j)} onMouseOver={(event) => onMouseOverChart(event, i, j)}>{subitem}</div>
+                                        <div key={j} className="no-select square player-range-modal-square" style={{ background: getDisplay(i, j), textAlign: "center" }} onMouseDown={() => onClickChart(i, j)} onMouseOver={(event) => onMouseOverChart(event, i, j)}>{subitem}</div>
                                     );
                                 })}
                             </Row>

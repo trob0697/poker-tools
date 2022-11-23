@@ -11,12 +11,12 @@ function Settings(): React.ReactElement {
     const [currentPage, setCurrentPage] = useState<string>("Account Details");
 
     useEffect(() => {
-        const accessToken: string | null = localStorage.getItem("accessToken");
-        const refreshToken: string | null = localStorage.getItem("refreshToken");
-        if (accessToken === null && refreshToken === null) {
-            alert("Unauthorized");
-            navigate("/home");
-        }
+        // const accessToken: string | null = localStorage.getItem("accessToken");
+        // const refreshToken: string | null = localStorage.getItem("refreshToken");
+        // if (accessToken === null && refreshToken === null) {
+        //     alert("Unauthorized");
+        //     navigate("/home");
+        // }
     });
 
     function renderTab(): React.ReactElement {

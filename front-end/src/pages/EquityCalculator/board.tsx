@@ -61,7 +61,7 @@ function Board(props: BoardProps): React.ReactElement {
                             <Row className="flex-nowrap" key={i}>
                                 {item.map((subitem, j) => {
                                     return (
-                                        <Col className={"board-modal-card " + (i % 2 === 0 ? "red" : "black")} onClick={() => onClickCard(i, j)} style={cardsMatrix[i][j] ? { backgroundColor: "yellow" } : {}} key={j}>
+                                        <Col className={"no-select board-modal-card " + (i % 2 === 0 ? "red" : "black")} onClick={() => onClickCard(i, j)} style={cardsMatrix[i][j] ? { backgroundColor: "yellow" } : {}} key={j}>
                                             <div>{subitem}</div>
                                             {(() => {
                                                 switch (i) {
