@@ -3,5 +3,6 @@ WORKDIR /app/back-end
 COPY package.json .
 RUN npm install
 COPY . .
+RUN npm run migrate-up
 EXPOSE 4000
-CMD npm run migrate-up && npm run start-dev
+CMD npm run start-dev

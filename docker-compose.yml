@@ -32,7 +32,6 @@ services:
     container_name: database-dev
     image: postgres:alpine
     restart: always
-    network_mode: bridge
     ports:
       - 5432:5432
     volumes:
@@ -43,3 +42,5 @@ services:
       - POSTGRES_DB=ptdb
 volumes:
   db:
+networks:
+  bridge:
