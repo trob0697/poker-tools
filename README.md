@@ -8,11 +8,17 @@ $ git clone https://github.com/trob0697/poker-tools.git
 ```
 $ cd poker-tools
 ```
-3. With docker installed, bring up containers
+3. In the back-end directory, make a .env file with the following
+```
+ACCESS_TOKEN_SECRET=accesstokensecret
+REFRESH_TOKEN_SECRET=refreshtokensecret
+DB_CONNECTION_STRING=postgresql://postgres:password@localhost:5432/ptdb
+```
+4. With docker installed, bring up containers
 ```
 $ docker compose up -d front-end-dev back-end-dev
 ```
-4. Access app at http://localhost:3000
+5. Access app at http://localhost:3000
 
 ## License
 
