@@ -8,10 +8,11 @@ $ git clone https://github.com/trob0697/poker-tools.git
 ```
 $ cd poker-tools
 ```
-3. Bring up
+3. With docker installed, bring up containers
 ```
-$ docker compose up app
+$ docker compose up -d front-end-dev back-end-dev
 ```
+4. Access app at http://localhost:3000
 
 ## License
 

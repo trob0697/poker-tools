@@ -1,12 +1,6 @@
 version: "3"
 services:
   # Development
-  development:
-    container_name: development
-    depends_on:
-      - front-end-dev
-      - back-end-dev
-      - database-dev
   front-end-dev:
     container_name: front-end-dev
     build:
@@ -32,6 +26,8 @@ services:
       - ./back-end/.env
     environment:
       - NODE_ENV=development
+    depends_on:
+      - database-dev
   database-dev:
     container_name: database-dev
     image: postgres:alpine
