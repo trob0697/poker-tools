@@ -1,8 +1,0 @@
-FROM node as build
-WORKDIR /app/front-end
-COPY package.json .
-RUN npm install  --only=production
-COPY . .
-RUN npm run build
-FROM nginx
-COPY --from=build /app/front-end/build /user/share/nginx/html
