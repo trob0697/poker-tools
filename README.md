@@ -12,7 +12,6 @@ $ cd poker-tools
 ```
 ACCESS_TOKEN_SECRET=accesstokensecret
 REFRESH_TOKEN_SECRET=refreshtokensecret
-DB_CONNECTION_STRING=postgresql://postgres:password@localhost:5432/ptdb
 ```
 4. With docker installed, bring up containers
 ```

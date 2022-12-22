@@ -2,7 +2,6 @@ version: "3"
 services:
   # Development
   front-end-dev:
-    container_name: front-end-dev
     build:
       context: ./front-end
       dockerfile: Dockerfile.dev
@@ -14,7 +13,6 @@ services:
       - NODE_ENV=development
       - DISABLE_ESLINT_PLUGIN=true
   back-end-dev:
-    container_name: back-end-dev
     build:
       context: ./back-end
       dockerfile: Dockerfile.dev
@@ -26,10 +24,10 @@ services:
       - ./back-end/.env
     environment:
       - NODE_ENV=development
-    depends_on:
+      - DB_CONNECTION_STRING=postgresql://postgres:password@database-dev:5432/ptdb
+    links:
       - database-dev
   database-dev:
-    container_name: database-dev
     image: postgres:alpine
     restart: always
     ports:
@@ -37,10 +35,8 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
     environment:
+      - POSTGRES_DB=ptdb
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=ptdb
 volumes:
   db:
-networks:
-  bridge:
