@@ -12,10 +12,10 @@ services:
     environment:
       - NODE_ENV=development
       - DISABLE_ESLINT_PLUGIN=true
-    # depends_on:
-    #   - backend-dev
-    # links:
-    #   - backend-dev
+    depends_on:
+      - backend-dev
+    links:
+      - backend-dev
   backend-dev:
     build:
       context: ./backend
