@@ -9,7 +9,7 @@
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
-        "project": ["./front-end/tsconfig.json", "./back-end/tsconfig.json"],
+        "project": ["./frontend/tsconfig.json", "./backend/tsconfig.json"],
         "sourceType": "module"
     },
     "plugins": [
@@ -32,7 +32,7 @@
     },
     "overrides": [
         {
-            "files": ["./back-end/src/database/migrations/*"],
+            "files": ["./backend/src/database/migrations/*"],
             "rules": {
                 "@typescript-eslint/return-await": "off"
             }
