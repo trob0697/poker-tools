@@ -15,9 +15,13 @@ REFRESH_TOKEN_SECRET=refreshtokensecret
 ```
 4. With docker installed, bring up containers
 ```
-$ docker compose up -d front-end-dev back-end-dev
+$ docker compose up -d front-end-dev
 ```
-5. Access app at http://localhost:3000
+5. Make database migrations
+```
+$ docker exec poker-tools-back-end-dev-1 sh -c "npm run migrate-up"
+```
+6. Access app at http://localhost:3000
 
 ## License
 

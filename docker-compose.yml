@@ -12,6 +12,10 @@ services:
     environment:
       - NODE_ENV=development
       - DISABLE_ESLINT_PLUGIN=true
+    depends_on:
+      - back-end-dev
+    links:
+      - back-end-dev
   back-end-dev:
     build:
       context: ./back-end
@@ -25,6 +29,8 @@ services:
     environment:
       - NODE_ENV=development
       - DB_CONNECTION_STRING=postgresql://postgres:password@database-dev:5432/ptdb
+    depends_on:
+      - database-dev
     links:
       - database-dev
   database-dev:
