@@ -19,7 +19,7 @@ $ docker compose up -d frontend-dev
 ```
 5. Make database migrations
 ```
-$ docker exec poker-tools-backend-dev-1 sh -c "npm run migrate-up"
+$ docker exec poker-tools-backend-dev-1 sh -c "npm run migrate-latest"
 ```
 6. Access app at http://localhost:3000
 

@@ -9,7 +9,8 @@
     "build": "tsc -p .",
     "migrate-init": "npx knex migrate:make init --migrations-directory src/database/migrations -x ts",
     "migrate-up": "npx knex migrate:up --knexfile src/database/knexfile.ts",
-    "migrate-down": "npx knex migrate:down --knexfile src/database/knexfile.ts"
+    "migrate-down": "npx knex migrate:down --knexfile src/database/knexfile.ts",
+    "migrate-latest": "npx knex migrate:latest --knexfile src/database/knexfile.ts"
   },
   "author": "",
   "license": "ISC",
